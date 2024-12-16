@@ -5,7 +5,7 @@
 #------------------------------------------------------------------------
 # Tools									|
 # SH C/C++ Compiler phase
-PVSDK_BASE=..
+PVSDK_BASE=$(CVDIR)
 
 CC=$(TCDIR)\bin\shc.exe
 
@@ -33,7 +33,7 @@ ADDLIB ="$(PVSDK_BASE)\lib\addlibc.lib"
 
 HIDIR = $(PVSDK_BASE)\lib\hilib
 HILIB = "$(HIDIR)\HiLIB.LIB"
-SHCLIB ="$(TCDIR)\shclib.lib"
+SHCLIB ="$(TCDIR)\lib\shclib.lib"
 
 #Common setting for Application
 SOURCES = sources.def

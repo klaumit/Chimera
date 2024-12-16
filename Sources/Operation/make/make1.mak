@@ -5,7 +5,7 @@
 #------------------------------------------------------------------------
 # Tools									|
 # SH C/C++ Compiler phase
-PVSDK_BASE=..
+PVSDK_BASE=$(CVDIR)
 
 CC=$(TCDIR)\bin\shc.exe
 
@@ -39,7 +39,7 @@ ADDLIB ="$(PVSDK_BASE)\lib\addlibc.lib"
 
 HIDIR = $(PVSDK_BASE)\lib\hilib
 HILIB = "$(HIDIR)\HiLIB.LIB"
-SHCLIB ="$(TCDIR)\shclib.lib"
+SHCLIB ="$(TCDIR)\lib\shclib.lib"
 
 #Common setting for Application
 SOURCES = sources.def
@@ -50,7 +50,7 @@ BINOUTDIR = user_bin
 INC="def","$(LDIR)","$(HIDIR)"
 LNKINF0=$(LCOM_H) $(LLIB) $(ADDLIB) $(SHCLIB) $(STARTUP) $(SOURCES)
 CCINF0=-include=$(INC) -subcommand=$(SUBCOM)
-SETHEDINF=-vl0100 -m1 -pA -o -bIicon\icon.bmp -bLicon\licon.bmp
+SETHEDINF=-vl0100 -m1 -pA -o -bImenuicon\icon.bmp -bLmenuicon\licon.bmp
 
 PUTNAMEINF=-p0 -wp
 
