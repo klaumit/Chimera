@@ -1,0 +1,86 @@
+
+********************************************************************
+
+LSI C parser ver 3.5.10pv<D> Copyright (C) 1988-1999 by LSI JAPAN [Dec 16 1999]
+	Written by Condeaux Yoshiyuki
+	Modified by Mori Koichiro, Norimatsu Pochi
+Usage: cf [-c[us2lhcyptgbf] -w(i) -nN -m[sp] -j -y -g] input output work
+
+********************************************************************
+
+LSI i8086 CG ver 3.5.11.1pv<D> Copyright (C) 1988-1991, 1995-2000 by LSI JAPAN [Mar 28 2000]
+	Written by Mori Koichiro
+	usage: cg86 [-vqgs -ms -mp] input output
+	
+********************************************************************
+
+LSI C preprocessor ver 1.5k1(beta 13) [Dec 16 1999]
+	written by Mori Koichiro
+	modified by Akira Kida
+    usage: cpp [-s] [-w] [-c] [-T] [-DMACRO] [-IINCDIR] [-ooutput] [input...]
+    
+********************************************************************
+
+Usage: ip86 inputfile outputfile sourcefile
+
+********************************************************************
+
+Make ver 2.0-SNAP-1025c
+(C) 1987-1990,1996-1998 by MORI Koichiro
+Usage: kmmake [options] [MACRO=value] [targets...]
+options:
+	-f FILE	read make command from file 'FILE'
+	-i	ignore return code
+	-k	make targets as many as possible
+	-n	do not execute; print what will be done
+	-r	do not use makedef
+	-s	do work silently
+	-t	only update timestamps
+	
+********************************************************************
+
+Usage: lcc86 [-afile][-c][-cn][-c[su]][-cv][-Dname[=value]][-gN][-h]
+           [-Idir][-jN][-k linkopt][-llibrary][-Ldir][-m][-m[sp]][-mslink]
+           [-nX][-noconf][-nomslink][-o output][-O][-p][-P][-S[C]][-Tdir]
+           [-vN][-wN][-Xdir][-yN][-z]  sourcefile...
+
+sourcefile: one of: *.c *.a86 *.asm *.obj *.lib
+
+********************************************************************
+
+Usage: libr86 [-o outputfile] [-s] [-l] [-n] [-x lccname] input.l
+
+********************************************************************
+
+LSI C Ver.3.5 
+LSI i8086 link loader ver 1.14<D> (C) 1990-1997, 1999 LSI JAPAN [Dec 16 1999]
+
+Usage: lld inputfiles & options...
+
+********************************************************************
+
+Usage: merc [-o outputfile] [-aAssembler-header] [-cC-header] file...
+
+********************************************************************
+
+LSI i8086 library archiver ver 1.04 (C) 1990, 1995-1997 LSI JAPAN [Feb 12 1997]
+Usage: oar [-]d|q|r|t|x[cuv][g N] library member-file...
+
+********************************************************************
+
+Usage: prof [-f] [sourcefile...]
+
+********************************************************************
+
+LSI i8086 Assembler ver 1.14<D> (C) 1988-1992, 1995-1997, 1999 by LSI JAPAN [Dec 16 1999]
+	Written by Tonsho Mariko
+Usage: r86 [options] filename
+options:
+	-o X	writes object on X
+	-p X	writes assembly listing on X
+	-m X	names module X
+	-q	disables jump optimization
+	
+********************************************************************
+
+

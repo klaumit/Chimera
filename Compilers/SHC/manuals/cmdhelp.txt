@@ -1,0 +1,219 @@
+
+********************************************************************
+
+SH SERIES ASSEMBLER Ver. 5.0B
+Copyright (C) Hitachi, Ltd. 1992,1999
+Copyright (C) Hitachi ULSI Systems Co., Ltd. 1992,1999
+Evaluation Version. Not Product.
+           --------------------------------------------------------
+               HELP INFORMATION of SuperH RISC engine ASSEMBLER
+           --------------------------------------------------------
+1. Assembler specification:
+   asmsh [-option [...]] filename [-option [...]]
+2. Assembler options:
+  (1) CPU=<cpu-type>                       Selects target CPU
+      <cpu-type>:==[sh1|sh2|sh2e|sh3|sh3e|sh4|shdsp|sh3dsp]
+  (2) Object[=<object-file-name>]          Generates object file
+      NOObject                             Doesn't generate object file
+  (3) Debug|NODebug                        Generates debugging information
+  (4) ENdian=[Big|Little]                  Selects object endian
+  (5) LISt[=<list-file-name>]              Generates listing file
+      NOLISt                               Doesn't generate listing file
+  (6) SOurce|NOSOurce                      Outputs source program list
+  (7) CRoss_reference|NOCRoss_reference    Outputs cross reference list
+  (8) SEction|NOSEction                    Outputs section data list
+  (9) SHow[=<output-item>[,[...]]]         Specifies output item
+      NOSHow[=<output-item>[,[...]]]       Specifies no output item
+      <output-item>:==[CONditionals|Definitions|CAlls|Expansions|CODe]
+ (10) LINes=<line-number>                  Specifies listing page lines
+ (11) COlumns=<column-number>              Specifies listing page columns
+ (12) Include=<include-path>[,[...]]       Specifies include file directory
+ (13) ASsignA=<sub-option>[,[...]]         Defines preprocessor variable
+      <sub-option>:==<symbol>=<constant>
+ (14) ASsignC=<sub-option>[,[...]]         Defines preprocessor variable
+      <sub-option>:==<symbol>=<string>
+ (15) DEFine=<sub-option>[,[...]]          Defines replacement symbol
+      <sub-option>:==<symbol>=<string>
+ (16) EXPand[=<expanded-file-name>]        Generates preprocessor output file
+ (17) ABort=[Warning|Error]                Selects abort error level
+ (18) SJIS|EUC|LATIN1                      Selects input character code
+ (19) OUtcode=[SJIS|EUC]                   Selects output character code
+ (20) AUTO_literal                         Selects Auto-literal mode
+ (21) LITERAL=[Pool|Branch|Jump|Return]    Specifies literal pool output point
+ (22) SUBcommand=<sub-file-name>           Specifies subcommand file name
+ (23) Round=[Nearest|Zero]                 Selects round mode
+ (24) DENormalize=[ON|OFF]                 Treats denormalized number
+ (25) LOGO|NOLOGO                          Displays invocation message
+ 
+********************************************************************
+ 
+HMAKE MAKE UTILITY Ver. 1.1
+Copyright (C) Hitachi Micro Systems Europe Ltd. 1998
+Copyright (C) Hitachi Ltd. 1998 
+
+	Usage:	hmake <hmake format file to make> <parameters>
+	Available parameters: (not case sensitive)
+	 /A = Execute all commands regardless of file status.
+	 /N = Display commands but do not execute them.
+	 /? = Display help info.
+
+********************************************************************
+
+Hitachi Optimizing Linkage Editor Ver7.1.03.000
+Copyright (C) Hitachi, Ltd. 1989, 2001
+Casio Version. Not Product
+
+Usage:   optlnk[ <file name>| <option spec.>]...
+                 <option spec.>:-<option>[=<parameter>,...]
+ Options:
+---------------------------- [File specification] ------------------------------
+-LIBrary=<file>,...                 Input library files
+-Binary=<sub>                       Input binary files
+   <sub>:   <file>(<section>[,<symbol>]),...
+---------------------------- [Message specification] ---------------------------
+-Message                            Enable all information messages
+-NOMessage[=<n>[-<m>],...]          Disable specified information messages
+-CHange_Message=<sub>,...           Change message level (I <-> W <-> E)
+   <sub>:   <level>[=<n>[-<m>],...]
+   <level>: Information | Warning | Error
+-[NO]LOgo                           Suppress copyright message
+---------------------------- [Control output file] -----------------------------
+-OUtput=<file>[=<sub>],...          Specify output files
+   <sub>:   <start>-<end>,... | <section>[:<section>...]
+-FOrm=<sub>                         Output file type
+   <sub>:  Absolute | Relocate | Object |
+           Hexadecimal | Stype | Binary | Library[=S|U]
+-REcord=<sub>                       Unify record type
+   <sub>:  H16 | H20 | H32 | S1 | S2 | S3
+-S9                                 Output s9 at end record
+---------------------------- [Debug options] -----------------------------------
+-[NO]DEBug                          Generate debugging information
+-SDebug                             Generate degugging information in .dbg file
+-STRip                              Delete debugging information
+-[NO]COmpress                       Compression of debugging information
+---------------------------- [Code generation options] -------------------------
+-CPu=<sub>                          Check memory allocation
+   <sub>:   <cpu information file> | <ROm|RAm>=<start>-<end>,...
+-STARt=<section>[<sub>],...         Specify section address
+   <sub>:   [<:|,><section>,...][/<addr>]
+-ROm=<section1>=<section2>,...      Specify initialized data section
+-ENTry=<symbol>|<value>             Specify execution start address
+---------------------------- [Optimization options] ----------------------------
+-OPtimize[=<sub>,...]               Optimization control
+   <sub>: STring_unify              Unify common constant data
+      SYmbol_delete                 Delete unused symbol
+      Variable_access               Use short addressing mode(@aa:8,@aa:16)
+      Register                      Optimize register assignment
+      SAMe_code                     Unify common code
+      Function_call                 Use @@aa:8 function call
+      Branch                        Optimize branch size
+      SPeed                         Optimize for speed (=st,sy,v,r,b)
+      SAFe                          Safe optimization (=st,r,b)
+-NOOPtimize                         Not optimization
+-SAMESize=<size>                    Size of common code
+-SYmbol_forbid=<symbol>,...         Forbid to delete unused symbol
+-SAMECode_forbid=<symbol>,...       Forbid common code unify optimization
+-Variable_forbid=<symbol>,...       Forbid optimization with short addressing
+-FUnction_forbid=<symbol>,...       Forbid function call optimization with @@aa
+-Absolute_forbid=                   Forbid optimization of <address>
+    <addr>[+<size>],...
+---------------------------- [Profile options] ---------------------------------
+-PROfile=<file>                     Specify profile information file
+-CAchesize=<sub>                    Specify cache size and cache line
+   <sub>: Size=<size>,Align=<cache line >
+---------------------------- [Listing file options] ----------------------------
+-LISt[=<file>]                      Create listing file and specify name
+-SHow[=<sub>,...]                   Specify listing contents
+   <sub>: SYmbol | Reference | SEction
+---------------------------- [Miscellaneous options] ---------------------------
+-MAp[=<file>]                       Output map file for compiler optimizing
+-REName=<sub>,...                   Rename symbol and section
+   <sub>: (<symbol>=<name>)             | (<section>=<name>)            |
+          <file>(<symbol>=<name>,...)   | <file>(<section>=<name>,...)  |
+          <module>(<symbol>=<name>,...) | <module>(<section>=<name>,...)
+-DELete=<sub>,...                   Delete symbol
+   <sub>: <module> | (<symbol>) | <file>(<symbol>,...)
+-DEFine=<sub>,...                   Forcibly define external reference symbol
+   <sub>: <symbol1>=<symbol2> | <value>
+-REPlace=<sub>,...                  Replace modules
+   <sub>: <file> | <file>(<module>,...)
+-EXTract=<module>,...               Extract modules from library
+-FSymbol=<section>,...              Create symbol address definition file
+-STACk                              Create stack size information file
+-SUbcommand=<file>                  Specify subcommand file
+-NOPRElink                          Suppress invocation prelinker
+
+********************************************************************
+  
+SH SERIES C/C++ Compiler Ver. 6.0A(Jul 2 2001)
+Copyright (C) 1992,2000 Hitachi,Ltd.,Hitachi Software Engineering Co.,Ltd.
+Licensed Material of Hitachi,Ltd.,Hitachi Software Engineering Co.,Ltd.
+
+
+             -------------------------------------------------------
+                      HELP INFORMATION  of SH C/C++ Compiler        
+             -------------------------------------------------------
+  1. Compiler specification:
+     shc|shcpp [-option [...]]  operand [,[...]] 
+     operand:==filename [-option [...]]
+  2. Compiler options:
+   (1) OPtimize=[0|1]                   Selects optimization level
+   (2) SHow=<sub-option> [,[...]]       Specifies listing file contents
+       <sub-option>:==[NO]SOurce|[NO]Object|[NO]STatistics|[NO]Include|
+                      [NO]Expansion|Width=<width>|Length=<length>
+   (3) Listfile[=<list-file-name>]      Generates listing file
+       NOListfile                       Doesn't generate listing file
+   (4) OBjectfile=<object-file-name>    Specifies object file name
+   (5) Code=[Machinecode|Asmcode]       Selects target language
+   (6) DEBug|NODEBug                    Generates debug information
+   (7) DEFine=<sub-option> [,[...]]     Defines macro
+       <sub-option>:==<macro>|<macro>=<id>|<macro>=<constant>
+   (8) Include=<include-path> [,[...]]  Specifies include file directory
+   (9) SEction=<sub-option> [,[...]]    Specifies section name
+       <sub-option>:==Program=<id>|Const=<id>|Data=<id>|Bss=<id>
+  (10) CPu=[sh1|sh2|sh2e|sh3|sh3e|sh4]  Specifies target CPU
+  (11) Pic=[0|1]                        Generates position independent code
+  (12) STring=[Const|Data]              Selects section for strings
+  (13) COMment=[Nest|NONest]            Allows nested comment
+  (14) SPeed|NOSPeed|SIze               Selects speed/size optimization
+  (15) Help                             Shows help information
+  (16) Euc|SJis                         Specifies Japanese code(EUC|Shift-JIS)
+  (17) SUbcommand=<sub-file-name>       Specifies subcommand file name
+  (18) ENdian=[Big|Little]              Selects object endian
+  (19) DIvision=[Cpu|Peripheral|Nomask] Selects division code expansion
+  (20) Macsave=[0|1]                    Selects MACL/MACH register save rules
+  (21) PREInclude=<preinclude-file-name> [,[...]]
+                                        Specifies preinclude file name
+  (22) INLine[=<node-count>]            Executes automatic inline expansion
+       NOINLine                         Doesn't execute automatic inline
+                                                                      expansion
+  (23) MEssage|NOMEssage                Outputs information message
+  (24) ALign16|NOALign16                Generates 16 byte aligned code
+  (25) NEstinline=<number>              Specifies nesting level of the inlining
+  (26) DOuble=Float                     Treats "double" as single precision
+  (27) OUtcode=[EUc|SJis]               Selects Japanese outcode(EUC|Shift-JIS)
+  (28) ABs16=[RUn|ALl]                  Generates 2 byte address code
+  (29) LOop|NOLOop                      Selects loop unrolling optimization
+  (30) RTnext|NORTnext                  Extends return value
+  (31) PREProcessor[=<expanded-file-name>] 
+                                        Specifies preprocessor output source
+  (32) FPu=[Single|Double]              Treats floating type as single/double
+  (33) DENormalize=[ON|OFF]             Treats denormalized number
+  (34) Round=[Nearest|Zero]             Selects round to nearest even/zero
+  (35) LAng=[C|CPp]                     Selects compiler C/C++ (only shc)
+  (36) CAse=[Ifthen|Table]              Selects switch statement's code
+                                                                [if-then|table]
+  (37) Goptimize                        Generates global optimizing data
+  (38) Template=[None|Static|Used|ALl|AUto]
+                                        Specifies templete instances generation
+  (39) EXception|NOEXception            Enables C++ exception processing
+  (40) FPScr=[Aggressive|Safe]          Selects FPSCR register change rules
+  (41) LOGO|NOLOGO                      Outputs copyright
+  (42) RTTI=[ON|OFF]                    Enable or disable rtti
+                                        (runtime type information) of
+                                        dynamic_cast, typeid
+  (43) ECpp                             Checks Embedded C++ Language syntax
+
+********************************************************************
+
+
