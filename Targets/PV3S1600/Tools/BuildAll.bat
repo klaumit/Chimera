@@ -21,9 +21,11 @@ if exist make\temp.mak del make\temp.mak
 rem ###############################
 rem          debug build
 rem ###############################
-genmake sources.def make\srcscp.mak
-if errorlevel 1 goto dbgmakeerr
-copy ..\shcdir.def+make\makedbg1.mak+sources.def+make\srcscp.mak+make\makedbg2.mak make\temp.mak
+rem genmake sources.def make\srcscp.mak
+rem if errorlevel 1 goto dbgmakeerr
+echo CVDIR=%CVDIR% > make\shcdir.def
+echo TCDIR=%TCDIR% >> make\shcdir.def
+copy make\shcdir.def+make\makedbg1.mak+sources.def+make\srcscp.mak+make\makedbg2.mak make\temp.mak
 hmake make\temp.mak
 echo _
 echo ###############################
@@ -40,7 +42,7 @@ seterr 0
 rem ###############################
 rem          release build
 rem ###############################
-copy ..\shcdir.def+make\make1.mak+sources.def+make\srcscp.mak+make\make2.mak make\temp.mak
+copy make\shcdir.def+make\make1.mak+sources.def+make\srcscp.mak+make\make2.mak make\temp.mak
 hmake make\temp.mak
 echo _
 echo ###############################
