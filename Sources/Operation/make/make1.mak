@@ -44,10 +44,10 @@ SHCLIB ="$(TCDIR)\lib\shclib.lib"
 #Common setting for Application
 SOURCES = sources.def
 SUBCOM = $(PVSDK_BASE)\tools\Makefile.sub
-SRCDIR = src
+SRCDIR = C
 OUTDIR = release
 BINOUTDIR = user_bin
-INC="def","$(LDIR)","$(HIDIR)"
+INC="H","$(LDIR)","$(HIDIR)"
 LNKINF0=$(LCOM_H) $(LLIB) $(ADDLIB) $(SHCLIB) $(STARTUP) $(SOURCES)
 CCINF0=-include=$(INC) -subcommand=$(SUBCOM)
 SETHEDINF=-vl0100 -m1 -pA -o -bImenuicon\icon.bmp -bLmenuicon\licon.bmp
