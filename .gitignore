@@ -396,3 +396,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+ForDEBUG/
+ForDebug.*
+Licon.BIN
+Licon.HEX
+icon.BIN
+icon.HEX
+

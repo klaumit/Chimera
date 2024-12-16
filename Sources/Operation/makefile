@@ -1,5 +1,5 @@
 
-include ..\COM_LNK\MakeSDK.1
+include $(PVDIR)\COM_LNK\MakeSDK.1
 
 TARGET  = Operation
 
@@ -15,6 +15,6 @@ APLOBJS =	$(ODIR)\Op.obj
 
 HEADFILE = 	$(HDIR)\Op.h
 
-include ..\COM_LNK\MakeSDK.2
+include $(PVDIR)\COM_LNK\MakeSDK.2
 
 

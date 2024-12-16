@@ -1,7 +1,6 @@
-#include	<stdrom.h>
 #include	"define.h"
 #include	"libc.h"
-#include	"sample.h"
+#include	"op.h"
 
 
 void main(void)

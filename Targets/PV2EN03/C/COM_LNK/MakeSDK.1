@@ -1,0 +1,30 @@
+
+.SUFFIXES:
+.SUFFIXES: .obj .c
+
+ifdef PMODEL
+MODEL = p
+else
+MODEL = s
+endif
+
+ifdef DEBUG
+DEBUG_FLAG = -g3
+ODIR  = ForDEBUG
+else
+DEBUG_FLAG =
+ODIR  = obj
+endif
+
+LHDIR = $(PVDIR)\com_lib\h
+CHDIR = $(PVDIR)\com_h
+CODIR = $(PVDIR)\com_obj\$(MODEL)
+CLDIR = $(PVDIR)\com_lib\$(MODEL)
+HDIR  = h
+
+CFLAG = -m$(MODEL) -a -v0 -O -c -cs $(DEBUG_FLAG) -I$(HDIR) -I$(CHDIR) -I$(LHDIR)
+CC    = lcc86
+VPATH = c
+
+.c.obj:
+	$(CC) $(CFLAG) -o$@ $<

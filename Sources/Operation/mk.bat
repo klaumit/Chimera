@@ -1,5 +1,6 @@
 @echo off
-CALL ..\..\PATHSET.BAT
+call ..\..\setenv.bat 
+
 @echo\
 
 @echo --- MAKE START ---
