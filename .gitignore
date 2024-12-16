@@ -404,3 +404,6 @@ icon.BIN
 icon.HEX
 User_Bin/
 err
+shcdir.def
+temp.mak
+user_bin/
