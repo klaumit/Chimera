@@ -27,4 +27,5 @@ CC    = lcc86
 VPATH = c
 
 .c.obj:
+	$(CC) $(CFLAG) -SC -o$@.s $<
 	$(CC) $(CFLAG) -o$@ $<
