@@ -4,7 +4,7 @@
 
 void main(void)
 {
-	unsigned short x = 31484;
-	unsigned short y = 12393;
+	unsigned short x = 31484; // 0x7afc
+	unsigned short y = 12393; // 0x3069
 	unsigned int z = x + y;
 }
