@@ -11,7 +11,7 @@ USERALLOBJ=	\
 !MESSAGE
 
 "$(OUTDIR)\$(FILE0).obj" : "$(SRCDIR)\$(FILE0).C" $(LNKINF0)
-	$(CC) "$(SRCDIR)\$(FILE0).c" -objectfile="$(OUTDIR)\$(FILE0).obj" $(CCINF0)
+	$(CC) "$(SRCDIR)\$(FILE0).c" -listfile="$(FILE0)_$(OUTDIR).s" -objectfile="$(OUTDIR)\$(FILE0).obj" $(CCINF0)
 
 #									#
 #########################################################################
