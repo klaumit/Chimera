@@ -407,3 +407,4 @@ err
 shcdir.def
 temp.mak
 user_bin/
+out/
