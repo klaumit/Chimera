@@ -28,7 +28,7 @@ lld ^
  -TFAR_BSS 08000 -M -TTEXT 80000 -oobj\op.hex obj\op.obj -L%LSC_LIB%
 
 echo ::: Converting to binary :::
-hex2bin obj\op.hex bin\op_x86.bin
+hex2bin obj\op.hex bin\op_x86.com
 
 echo ::: Done :::
 
