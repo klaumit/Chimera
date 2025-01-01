@@ -1,0 +1,18 @@
+noprelink
+nomessage
+list "obj\op.map"
+show symbol
+start R/0803C0000,B_heap/0803E0000,B_SYSRAM/08C000800,C_binaryinfo/0A0080100,C_programinfo/0A0080180,P,C,D,B/0A0081200
+nologo
+input ..\..\Targets\PV3S1600\system\obj\startapl.obj
+input ..\..\Targets\PV3S1600\system\obj\setup.obj
+input ..\..\Targets\PV3S1600\system\obj\section.obj
+input ..\..\Targets\PV3S1600\system\obj\rsysram.obj
+input ..\..\Targets\PV3S1600\system\obj\bootinf.obj
+input "obj\op.obj"
+library "..\..\Targets\PV3S1600\lib\libc.lib"
+library "..\..\Targets\PV3S1600\lib\addlibc.lib"
+library "..\..\Targets\PV3S1600\lib\hilib\HiLIB.LIB"
+library "..\..\Compilers\SHC\lib\shclib.lib"
+output "bin\op.abs"
+exit
