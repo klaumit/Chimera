@@ -4,6 +4,7 @@ echo ::: Setting up environment :::
 call ..\..\setraw.bat
 set PATH=%LSBIN%;%LSTOO%;%PATH%
 set PATH=%TCBIN%;%TCTOO%;%PATH%
+set EDIST=..\..\Tools\dist
 
 echo ::: Deleting old binaries :::
 rd /s /q bin
@@ -29,7 +30,7 @@ lld ^
  -TFAR_BSS 08000 -M -TTEXT 80000 -oobj\op_x86.hex obj\op_x86.obj -L%LSC_LIB%
 
 echo ::: Converting to binary :::
-hex2bin obj\op_x86.hex bin\op_x86.com
+hex2bin obj\op_x86.hex bin\op_x86.bin
 
 echo ::: Compiling to text and object :::
 shc "c\op.c" -listfile="obj\op_sh3.txt" -objectfile="obj\op_sh3.obj" ^
@@ -38,6 +39,16 @@ shc "c\op.c" -listfile="obj\op_sh3.txt" -objectfile="obj\op_sh3.obj" ^
 
 echo ::: Linking to ELF :::
 optlnk -subcommand=linking.prm
+
+echo ::: Preparing :::
+mkdir %TEMP%\Extra
+copy /y %EDIST%\* %TEMP%\Extra\
+copy /y obj\*_sh3.txt bin
+
+echo ::: Patching :::
+%TEMP%\Extra\ComPatcher bin
+del bin\*_sh3.txt
+rd /s /q %TEMP%\Extra
 
 echo ::: Done :::
 
