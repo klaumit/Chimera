@@ -88,7 +88,6 @@ namespace ComPatcher
 			}
 			
 			Console.Write("Done.");
-			Console.ReadKey(true);
 		}
 	}
 }
