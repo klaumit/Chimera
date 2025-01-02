@@ -18,7 +18,7 @@ void exit_dos(void)
 #ifdef _M86
     nf_exit();
 #elif _MH3
-    Vagina1
+    rotl(1);
 #endif
 }
 
@@ -27,7 +27,7 @@ void print_nl(void)
 #ifdef _M86
     nf_nl();
 #elif _MH3
-    Vagina2
+    rotl(2);
 #endif
 }
 
@@ -36,6 +36,6 @@ void print_char(short c)
 #ifdef _M86
     nf_char(c);
 #elif _MH3
-    Vagina3
+    rotl(3);
 #endif
 }

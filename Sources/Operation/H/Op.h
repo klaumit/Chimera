@@ -18,6 +18,15 @@ void _asm_nf_char(unsigned char *, unsigned char);
 #define nf_nl() _asm_nf_nl("\n mov ah, 02h \n mov dl, 0Dh \n int 21h \n mov dl, 0Ah \n int 21h \n")
 void _asm_nf_nl();
 
+#elif _MH3
+
+#pragma inline_asm(rotl)
+static int rotl(int a)
+{
+    ROTL R4
+    MOV R4,R0
+}
+
 #endif
 
 #endif
