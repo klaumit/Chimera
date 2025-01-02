@@ -15,7 +15,7 @@ mkdir obj
 echo ::: Compiling to text :::
 lcc86 -SC ^
  -a -B -c -cn -cs -D_M86 -I%PVDIR%\com_h -I%PVDIR%\com_lib\h ^
- -Ih -j0 -ms -O -oobj\op_x86.txt -v0 c/op.c
+ -Ih -j0 -ms -O -oobj\op_x86.asm -v0 c/op.c
 
 echo ::: Compiling to object :::
 lcc86 ^

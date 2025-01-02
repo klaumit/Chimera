@@ -4,12 +4,14 @@ noprelink
 nomessage
 list "obj\op_sh3.map"
 show symbol
-start P,B,B_heap,C_programinfo/100,D/0
+start P,B,B_heap/100
 nologo
 optimize string_unify,symbol_delete,register,same_code,branch
 input "obj\op_sh3.obj"
-input ..\..\Targets\PV3S1600\system\obj\bootinf.obj
 input ..\..\Targets\PV3S1600\system\obj\setup.obj
-library "..\..\Compilers\SHC\lib\shclib.lib"
-output "bin\op_sh3.rom"
+delete (_srand)
+delete (__errno)
+delete (__s1ptr)
+delete (_PROGRAMINFO)
+output "bin\op_sh3.com"
 exit
