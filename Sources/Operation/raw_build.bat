@@ -14,30 +14,27 @@ mkdir obj
 
 echo ::: Compiling to text :::
 lcc86 -SC ^
- -ms -a -v0 -O -c -cs -Ih ^
- -I%PVDIR%\com_h -I%PVDIR%\com_lib\h ^
- -oobj\op_x86.txt c/op.c
+ -a -B -c -cn -cs -D_M86 -I%PVDIR%\com_h -I%PVDIR%\com_lib\h ^
+ -Ih -j0 -ms -O -oobj\op_x86.txt -v0 c/op.c
 
 echo ::: Compiling to object :::
 lcc86 ^
- -ms -a -v0 -O -c -cs -Ih ^
- -I%PVDIR%\com_h -I%PVDIR%\com_lib\h ^
- -oobj\op_x86.obj c/op.c
+ -a -B -c -cn -cs -D_M86 -I%PVDIR%\com_h -I%PVDIR%\com_lib\h ^
+ -Ih -j0 -ms -O -oobj\op_x86.obj -v0 c/op.c
 
-echo ::: Linking to hex :::
+echo ::: Linking to binary ::: 
 lld ^
- -Fh -TDATA 19000 -TSYS_DATA 18400 -TSYS_EXTDATA 18000 -TXSTACK 1E000 ^
- -TFAR_BSS 08000 -M -TTEXT 80000 -oobj\op_x86.hex obj\op_x86.obj -L%LSC_LIB%
+ -Fc -L%LSC_LIB% -g -M -oobj\op_x86.bin -T 0x100 obj\op_x86.obj
 
-echo ::: Converting to binary :::
-hex2bin obj\op_x86.hex bin\op_x86.bin
+echo ::: Correcting folder :::
+move obj\*.bin bin\ >nul
 
 echo ::: Compiling to text and object :::
-shc "c\op.c" -listfile="obj\op_sh3.txt" -objectfile="obj\op_sh3.obj" ^
- -include="h","%CVDIR%\lib\LibH","%CVDIR%\lib\hilib" ^
- -cpu=sh3 -noinline -chgincpath -errorpath -lang=c -nologo
-
-echo ::: Linking to ELF :::
+shc ^
+ -cpu=sh3 -chgincpath -errorpath -lang=c -nologo ^
+ -optimize=1 -define=_MH3 -comment=nest -size ^
+ -listfile="obj\op_sh3.txt" -objectfile="obj\op_sh3.obj" ^
+ -include="h","%CVDIR%\lib\LibH","%CVDIR%\lib\hilib" "c\op.c"
 optlnk -subcommand=linking.prm
 
 echo ::: Preparing :::
