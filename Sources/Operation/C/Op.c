@@ -6,10 +6,6 @@ void main(void)
     volatile signed int a = 0x13;
     volatile unsigned int b = 0x22;
     print_char(a - b);
-    print_char(a - b);
-    print_nl();
-    print_char(a - b);
-    print_nl();
     exit_dos();
 }
 

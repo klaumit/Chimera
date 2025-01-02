@@ -26,6 +26,9 @@ echo ::: Linking to binary :::
 lld ^
  -Fc -L%LSC_LIB% -g -M -oobj\op_x86.com -T 0x100 obj\op_x86.obj
 
+echo ::: Inspect binary :::
+..\..\tools\nasm\ndisasm -b 16 -p intel obj\op_x86.com >> obj\op_x86.txt
+
 echo ::: Correcting folder :::
 move obj\*.com bin\ >nul
 
