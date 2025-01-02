@@ -12,7 +12,7 @@ rd /s /q obj
 mkdir bin
 mkdir obj
 
-echo ::: Compiling to text :::
+echo ::: Compiling to assembly :::
 lcc86 -SC ^
  -a -B -c -cn -cs -D_M86 -I%PVDIR%\com_h -I%PVDIR%\com_lib\h ^
  -Ih -j0 -ms -O -oobj\op_x86.asm -v0 c/op.c
@@ -22,14 +22,12 @@ lcc86 ^
  -a -B -c -cn -cs -D_M86 -I%PVDIR%\com_h -I%PVDIR%\com_lib\h ^
  -Ih -j0 -ms -O -oobj\op_x86.obj -v0 c/op.c
 
-echo ::: Linking to binary ::: 
+echo ::: Linking to binary :::
 lld ^
  -Fc -L%LSC_LIB% -g -M -oobj\op_x86.com -T 0x100 obj\op_x86.obj
 
-echo ::: Inspect binary :::
 ..\..\tools\nasm\ndisasm -b 16 -p intel obj\op_x86.com >> obj\op_x86.txt
 
-echo ::: Correcting folder :::
 move obj\*.com bin\ >nul
 
 echo ::: Compiling to assembly :::
@@ -39,7 +37,7 @@ shc ^
  -listfile="obj\op_sh3.txt" -objectfile="obj\op_sh3.asm" ^
  -include="h","%CVDIR%\lib\LibH","%CVDIR%\lib\hilib" "c\op.c"
 
-echo ::: Assembling to text and object :::
+echo ::: Compiling to object :::
 asmsh ^
  -cpu=sh3 -list="obj\op_sh3.txt" -object="obj\op_sh3.obj" ^
  -source -cross_reference -section -nologo "obj\op_sh3.asm"

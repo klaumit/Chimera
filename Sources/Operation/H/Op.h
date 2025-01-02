@@ -20,11 +20,25 @@ void _asm_nf_nl();
 
 #elif _MH3
 
-#pragma inline_asm(rotl)
-static int rotl(int a)
+#pragma inline_asm(nf_exit)
+static int nf_exit()
 {
-    ROTL R4
-    MOV R4,R0
+    ROTL R1
+    MOV R1,R0
+}
+
+#pragma inline_asm(nf_char)
+static int nf_char(int a)
+{
+    ROTL R2
+    MOV R2,R0
+}
+
+#pragma inline_asm(nf_nl)
+static int nf_nl()
+{
+    ROTL R3
+    MOV R3,R0
 }
 
 #endif
