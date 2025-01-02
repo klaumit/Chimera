@@ -4,12 +4,12 @@ noprelink
 nomessage
 list "obj\op_sh3.map"
 show symbol
-start B_heap/0803E0000,C_programinfo/0A0080180,P,D,B/100
+start P,B,B_heap,C_programinfo/100,D/0
 nologo
 optimize string_unify,symbol_delete,register,same_code,branch
 input "obj\op_sh3.obj"
 input ..\..\Targets\PV3S1600\system\obj\bootinf.obj
 input ..\..\Targets\PV3S1600\system\obj\setup.obj
 library "..\..\Compilers\SHC\lib\shclib.lib"
-output "bin\op_sh3.abs"
+output "bin\op_sh3.rom"
 exit
