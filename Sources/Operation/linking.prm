@@ -7,9 +7,9 @@ show symbol
 start B_heap/0803E0000,C_programinfo/0A0080180,P,D,B/100
 nologo
 nooptimize
-input ..\..\Targets\PV3S1600\system\obj\setup.obj
-input ..\..\Targets\PV3S1600\system\obj\bootinf.obj
 input "obj\op_sh3.obj"
+input ..\..\Targets\PV3S1600\system\obj\bootinf.obj
+input ..\..\Targets\PV3S1600\system\obj\setup.obj
 library "..\..\Targets\PV3S1600\lib\libc.lib"
 library "..\..\Targets\PV3S1600\lib\addlibc.lib"
 library "..\..\Targets\PV3S1600\lib\hilib\HiLIB.LIB"
