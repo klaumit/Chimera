@@ -23,22 +23,25 @@ void _asm_nf_nl();
 #pragma inline_asm(nf_exit)
 static int nf_exit()
 {
-    ROTL R1
-    MOV R1,R0
+    mov.w #19456, R5
+    trapa #33
 }
 
 #pragma inline_asm(nf_char)
 static int nf_char(int a)
 {
-    ROTL R2
-    MOV R2,R0
+    mov #2, R5
+    trapa #33
 }
 
 #pragma inline_asm(nf_nl)
 static int nf_nl()
 {
-    ROTL R3
-    MOV R3,R0
+    mov #2, R5
+    mov #13, R4
+    trapa #33
+    mov #10, R4
+    trapa #33
 }
 
 #endif
