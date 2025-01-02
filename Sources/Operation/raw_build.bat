@@ -35,8 +35,10 @@ shc ^
  -optimize=1 -define=_MH3 -comment=nest -size ^
  -listfile="obj\op_sh3.txt" -objectfile="obj\op_sh3.obj" ^
  -include="h","%CVDIR%\lib\LibH","%CVDIR%\lib\hilib" "c\op.c"
+  
+echo ::: Linking to binary :::
 optlnk -subcommand=linking.prm
-
+ 
 echo ::: Preparing :::
 mkdir %TEMP%\Extra
 copy /y %EDIST%\* %TEMP%\Extra\
