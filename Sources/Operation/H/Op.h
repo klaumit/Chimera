@@ -5,16 +5,4 @@
 
 void print_char(short c);
 
-enum color
-{
-    black,
-    blue,
-    red,
-    green = 4,
-    skyblue,
-    violet = 3,
-    yellow = 6,
-    white
-};
-
 #endif
