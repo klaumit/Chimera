@@ -3,8 +3,8 @@
 
 void main(void)
 {
-    volatile signed int a = 0x13;
-    volatile unsigned int b = 0x22;
+    volatile signed int a = 0x4B;
+    volatile unsigned int b = 0x12;
     print_char(a - b);
     exit_dos();
 }
