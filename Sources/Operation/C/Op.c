@@ -6,7 +6,6 @@ void main(void)
 	volatile signed int a = 0x4A;
     volatile unsigned int b = 0x12;
 	volatile int xa[4] = {0x2B,35,75,100};
-	volatile int xb[2][3] = { {1,4,2}, {3,6,8 } };
     print_char(a - b); /* 8 */
 
     a = 0x1A;
@@ -67,7 +66,7 @@ void main(void)
     print_char((!(a > b)) ? 'Y' : 'N');
 
 	if (a >= b){
-		print_char('1');
+		print_char('1'); /* 1 */
 	} else {
 		print_char('2');
 	}
@@ -75,7 +74,7 @@ void main(void)
 	a = 0x91;
 	switch (a) {
 		case 0x91:
-			print_char('S');
+			print_char('S'); /* S */
 			break;
 		default:
 			print_char('F');
@@ -84,12 +83,12 @@ void main(void)
 	
 	a = 3;
 	while (a > 0) {
-		print_char('0' + (a--));
+		print_char('0' + (a--)); /* 3,2,1 */
 	}
 	
 	a = 4;
 	do {
-		print_char('A' + (a+=2));
+		print_char('A' + (a+=2)); /* G,I,K,M */
 	} while (a < 11);
 	
 	a = 0x1234;
@@ -99,19 +98,27 @@ void main(void)
 		b = b * 10 + a % 10;
 		a /= 10;
 	}
-	print_char((b >> 8) + 0x30);
+	print_char((b >> 8) + 0x30); /* 2 */
 	
 	a = 4;
 	for (a = 0; a < 8; a+=3)
-		print_char('0' + a);
+		print_char('0' + a); /* 0,3,6 */
 	
-	print_char(xa[1] + 6 + 23 + 5);
+	b = 0;
+	#ifdef _MH3
+		b = 8;
+	#endif
+
+	print_char('0'+sizeof(xa)-b); /* 8 */
+
+	b = 0;
+	#ifdef _MH3
+		b = 2;
+	#endif
+	
+	print_char('A'+sizeof(xa[1])-b); /* C */
 	xa[1] = 0x33;
-	print_char(xa[1] + xa[0] + 14);
-	
-	print_char('0'+sizeof(xa));
-	
-	print_char(xb[0][2]+'a');
+	print_char('B'+sizeof(xa[0])-b); /* D */
 	
     exit_dos();
 }
