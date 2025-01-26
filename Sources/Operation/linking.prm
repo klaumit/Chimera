@@ -4,7 +4,7 @@ noprelink
 nomessage
 list "obj\op_sh3.map"
 show symbol
-start P,B,B_heap/100
+start P,C,B,B_heap/100
 nologo
 optimize string_unify,symbol_delete,register,same_code,branch
 input "obj\op_sh3.obj"
